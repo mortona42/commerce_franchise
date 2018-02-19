@@ -1,0 +1,33 @@
+add franchise product entities:
+  title: 'Create new Franchise product entities'
+
+administer franchise product entities:
+  title: 'Administer Franchise product entities'
+  description: 'Allow to access the administration form to configure Franchise product entities.'
+  restrict access: true
+
+delete franchise product entities:
+  title: 'Delete Franchise product entities'
+
+edit franchise product entities:
+  title: 'Edit Franchise product entities'
+
+access franchise product overview:
+  title: 'Access the Franchise product overview page'
+
+view published franchise product entities:
+  title: 'View published Franchise product entities'
+
+view unpublished franchise product entities:
+  title: 'View unpublished Franchise product entities'
+
+view all franchise product revisions:
+  title: 'View all Franchise product revisions'
+
+revert all franchise product revisions:
+  title: 'Revert all Franchise product revisions'
+  description: 'Role requires permission <em>view Franchise product revisions</em> and <em>edit rights</em> for franchise product entities in question or <em>administer franchise product entities</em>.'
+
+delete all franchise product revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Franchise product revisions</em> and <em>delete rights</em> for franchise product entities in question or <em>administer franchise product entities</em>.'

@@ -1,0 +1,14 @@
+cart_switch_alert:
+  js:
+    js/cart-switch-alert.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/jquery.cookie
+
+location_indicator:
+  js:
+    js/location-indicator.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.cookie

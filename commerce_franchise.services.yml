@@ -1,0 +1,30 @@
+services:
+  commerce_franchise.location_cookie:
+    class: Drupal\commerce_franchise\EventSubscriber\FranchiseLocationCookie
+    arguments: []
+    tags:
+      - { name: event_subscriber, priority: 30 }
+
+  commerce_franchise.product_store_visibility:
+    class: Drupal\commerce_franchise\EventSubscriber\FranchiseProductStoreVisibility
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+
+  commerce_franchise.store_resolver:
+    class: Drupal\commerce_franchise\Resolver\FranchiseStoreResolver
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: commerce_store.store_resolver, priority: 100 }
+
+  commerce_franchise.store_overrider:
+    class: Drupal\commerce_franchise\FranchiseStoreOverrider
+    arguments: []
+    tags:
+      - {name: config.factory.override, priority: 5}
+      
+    commerce_franchise.order_receipt_subscriber:
+    class: Drupal\commerce_franchise\EventSubscriber\OrderReceiptSubscriber
+    arguments: ['@entity_type.manager', '@language_manager', '@plugin.manager.mail', '@commerce_order.order_total_summary', '@renderer']
+    tags:
+      - { name: 'event_subscriber' }

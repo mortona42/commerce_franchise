@@ -1,0 +1,22 @@
+{#
+/**
+ * @file franchise_product.html.twig
+ * Default theme implementation to present Franchise product data.
+ *
+ * This template is used when viewing Franchise product pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_franchise_product()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('franchise_product') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

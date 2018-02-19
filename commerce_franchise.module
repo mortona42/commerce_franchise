@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * Contains commerce_franchise.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ */
+function commerce_franchise_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the commerce_franchise module.
+    case 'help.page.commerce_franchise':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_franchise_theme() {
+  $theme = [];
+  $theme['franchise_product'] = [
+    'render element' => 'elements',
+    'file' => 'franchise_product.page.inc',
+    'template' => 'franchise_product',
+  ];
+  $theme['franchise_product_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'franchise_product.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function commerce_franchise_theme_suggestions_franchise_product(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#franchise_product'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'franchise_product__' . $sanitized_view_mode;
+  $suggestions[] = 'franchise_product__' . $entity->bundle();
+  $suggestions[] = 'franchise_product__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'franchise_product__' . $entity->id();
+  $suggestions[] = 'franchise_product__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+ * Add switch-cart-alert.js to location finder view.
+ *
+ * Implements hook_views_pre_render().
+ */
+function commerce_franchise_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'location_finder')) {
+    $view->element['#attached']['library'][] = 'commerce_franchise/cart_switch_alert';
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function commerce_franchise_menu_local_tasks_alter(&$data, $route_name) {
+  unset($data['tabs'][0]['entity.commerce_shipment.collection']);
+}
+
+/**
+ * Add location indicator.
+ *
+ * Implements hook_preprocess_HOOK().
+ */
+function commerce_franchise_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'commerce_franchise/location_indicator';
+}

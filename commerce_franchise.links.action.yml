@@ -1,0 +1,11 @@
+entity.franchise_product.add_form:
+  route_name: entity.franchise_product.add_page
+  title: 'Add Franchise product'
+  appears_on:
+    - entity.franchise_product.collection
+entity.franchise_product_type.add_form:
+  route_name: entity.franchise_product_type.add_form
+  title: 'Add Franchise product type'
+  appears_on:
+    - entity.franchise_product_type.collection
+

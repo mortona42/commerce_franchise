@@ -1,0 +1,18 @@
+
+# Franchise product menu items definition
+entity.franchise_product.collection:
+  title: 'Franchise Products'
+  route_name: entity.franchise_product.collection
+  description: 'List Franchise product entities'
+  parent: commerce.admin_commerce
+  weight: 100
+
+
+# Franchise product type menu items definition
+entity.franchise_product_type.collection:
+  title: 'Franchise product types'
+  route_name: entity.franchise_product_type.collection
+  description: 'List Franchise product type (bundles)'
+  parent: commerce.configuration
+  weight: 99
+
