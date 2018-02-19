@@ -223,11 +223,11 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'string',
-        'weight' => -4,
+        'weight' => 1,
       ])
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
-        'weight' => -4,
+        'weight' => 1,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
@@ -252,6 +252,35 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setReadOnly(TRUE)
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
+
+    $fields['price'] = BaseFieldDefinition::create('float')
+      ->setLabel(t('Price'))
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => 2,
+      ])
+      ->setDisplayOptions('view', [
+        'type' => 'float',
+        'weight' => 2,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+
+    $fields['stores'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Stores'))
+      ->setDescription(t('description'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setRequired(TRUE)
+      ->setSetting('target_type', 'commerce_store')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'commerce_entity_select',
+        'weight' => 3,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);;
 
     return $fields;
   }

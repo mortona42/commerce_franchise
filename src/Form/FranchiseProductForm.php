@@ -33,6 +33,24 @@ class FranchiseProductForm extends ContentEntityForm {
     return $form;
   }
 
+  public function form(array $form, FormStateInterface $form_state) {
+    $form = parent::form($form, $form_state);
+
+    $form['#theme'] = ['franchise_product_form'];
+
+    $form['#attached']['library'][] = 'commerce_product/form';
+
+    $form['advanced'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['entity-meta']],
+      '#weight' => 99,
+    ];
+
+    $form['stores']['#group'] = 'advanced';
+
+    return $form;
+  }
+
   /**
    * {@inheritdoc}
    */

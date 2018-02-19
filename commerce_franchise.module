@@ -39,6 +39,14 @@ function commerce_franchise_theme() {
     'variables' => ['content' => NULL],
     'file' => 'franchise_product.page.inc',
   ];
+
+  $theme['franchise_product_form'] = [
+    'render element' => 'form',
+    'template' => 'commerce-product-form',
+    'path' => drupal_get_path('module', 'commerce_product') . '/templates/',
+  ];
+
+
   return $theme;
 }
 
