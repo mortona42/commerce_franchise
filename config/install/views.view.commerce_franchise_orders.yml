@@ -5,8 +5,8 @@ dependencies:
     - commerce_order
 _core:
   default_config_hash: ZtccXAVEMFCk33aY9QloaSExbQb-0RBEKDcmRthH0us
-id: commerce_franchise_orders
-label: 'Commerce Franchise Orders'
+id: franchise_orders
+label: 'Franchise Orders'
 module: views
 description: ''
 tag: ''

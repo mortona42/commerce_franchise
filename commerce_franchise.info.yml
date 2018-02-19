@@ -6,3 +6,4 @@ package: Commerce
 dependencies:
   - commerce:commerce
   - commerce:commerce_product
+  - commerce:commerce_order

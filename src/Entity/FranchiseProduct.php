@@ -211,27 +211,6 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Franchise product entity.'))
-      ->setRevisionable(TRUE)
-      ->setSettings([
-        'max_length' => 50,
-        'text_processing' => 0,
-      ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => 1,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => 1,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Franchise product is published.'))
@@ -253,20 +232,6 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
 
-    $fields['price'] = BaseFieldDefinition::create('float')
-      ->setLabel(t('Price'))
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => 2,
-      ])
-      ->setDisplayOptions('view', [
-        'type' => 'float',
-        'weight' => 2,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-
     $fields['stores'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Stores'))
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
@@ -276,7 +241,7 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'commerce_entity_select',
-        'weight' => 3,
+        'weight' => 0,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
@@ -285,7 +250,7 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setLabel((t('Product')))
       ->setCardinality(1)
       ->setRequired(TRUE)
-      ->setSetting('target_type', 'commerce_product')
+      ->setSetting('target_type', 'commerce_product_variation')
       ->setSetting('handler', 'default')
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [

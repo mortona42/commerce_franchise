@@ -47,6 +47,7 @@ class FranchiseProductForm extends ContentEntityForm {
     ];
 
     $form['stores']['#group'] = 'advanced';
+    $form['user_id']['#group'] = 'advanced';
 
     return $form;
   }

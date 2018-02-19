@@ -53,29 +53,6 @@ class FranchiseLocationCookie implements EventSubscriberInterface {
       $_COOKIE['Drupal_visitor_storefrontNid'] = $storefront->id();
       $_COOKIE['Drupal_visitor_storefrontName'] = $storefront->label();
       $_COOKIE['Drupal_visitor_storefrontUrl'] = $storefront->url();
-
-
-      // Get Commerce Store from Storefront.
-      $store = \Drupal::entityTypeManager()
-        ->getStorage('commerce_store')
-        ->loadByProperties(['field_storefronts' => $storefront->id()]);
-
-      if (!empty($store)) {
-        $store = array_pop($store);
-        $store_id = $store->id();
-        user_cookie_save(['storeId' => $store->id()]);
-        $_COOKIE['Drupal_visitor_storeId'] = $store->id();
-
-        $saved_store_id = $event->getRequest()->cookies->get('Drupal_visitor_storeId');
-        if (!($store_id === $saved_store_id)) {
-          // Delete carts.
-          $cart_provider = \Drupal::service('commerce_cart.cart_provider');
-          $carts = $cart_provider->getCarts();
-          foreach ($carts as $cart) {
-            $cart->delete();
-          }
-        }
-      }
     }
   }
 }

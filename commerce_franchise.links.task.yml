@@ -20,7 +20,13 @@ entity.franchise_product.delete_form:
   weight: 10
 
 commerce_franchise.orders:
-  route_name: view.commerce_franchise_orders.page_1
+  route_name: view.franchise_orders.page_1
   title: 'Franchise Orders'
   base_route: entity.commerce_store.canonical
   weight: 2
+
+commerce_franchise.storefronts:
+  route_name: view.franchise_storefronts.page_1
+  title: 'Franchise Storefronts'
+  base_route: entity.commerce_store.canonical
+  weight: 3
