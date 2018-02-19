@@ -269,7 +269,6 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
 
     $fields['stores'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Stores'))
-      ->setDescription(t('description'))
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setRequired(TRUE)
       ->setSetting('target_type', 'commerce_store')
@@ -280,7 +279,19 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
         'weight' => 3,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);;
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['product'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel((t('Product')))
+      ->setCardinality(1)
+      ->setRequired(TRUE)
+      ->setSetting('target_type', 'commerce_product')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'entity_select',
+        'weight' => 4,
+      ]);
 
     return $fields;
   }
