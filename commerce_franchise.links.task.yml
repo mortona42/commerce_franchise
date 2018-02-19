@@ -1,5 +1,3 @@
-# Franchise product routing definition
-
 entity.franchise_product.canonical:
   route_name: entity.franchise_product.canonical
   base_route: entity.franchise_product.canonical
@@ -21,55 +19,8 @@ entity.franchise_product.delete_form:
   title: Delete
   weight: 10
 
-view.franchise_orders.page_1:
-  title: 'Franchise'
-  route_name: view.franchise_orders.page_1
-  base_route: entity.user.canonical
-  weight: 10
-
 commerce_franchise.orders:
-  route_name: view.franchise_orders.page_1
-  title: 'Franchise orders'
-  parent_id: view.franchise_orders.page_1
-  weight: 0
-
-commerce_franchise.products:
-  route_name: view.iconnect_products.page_2
-  title: 'Products'
-  parent_id: view.franchise_orders.page_1
-  weight: 1
-
-commerce_franchise.stores:
-  route_name: view.franchise_storefronts.page_1
-  title: 'Stores'
-  parent_id: view.franchise_orders.page_1
+  route_name: view.commerce_franchise_orders.page_1
+  title: 'Franchise Orders'
+  base_route: entity.commerce_store.canonical
   weight: 2
-
-commerce_franchise.tax_report:
-  route_name: view.tax_report.page_1
-  title: 'Tax report'
-  parent_id: view.franchise_orders.page_1
-  weight: 3
-
-commerce_franchise.leancom_reports:
-  route_name: bjo_commerce.leancom_dashboard
-  title: 'Sales Report'
-  parent_id: view.franchise_orders.page_1
-  weight: 4
-
-commerce_franchise.events:
-  route_name: view.franchise_events.page_1
-  title: 'Events'
-  parent_id: view.franchise_orders.page_1
-  weight: 5
-
-commerce_franchise.blog:
-  route_name: view.franchise_blog.page_1
-  title: 'Blog'
-  parent_id: view.franchise_orders.page_1
-  weight: 6
-
-commerce_franchise.order_shipments:
-  route_name: view.order_shipments.page_1
-  title: 'Shipments'
-  base_route: entity.commerce_order.canonical
