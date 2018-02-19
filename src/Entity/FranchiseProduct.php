@@ -186,6 +186,27 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    $fields['name'] = BaseFieldDefinition::create('string')
+        ->setLabel(t('Name'))
+      ->setDescription(t('The name of the Franchise product entity.'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+          'max_length' => 50,
+          'text_processing' => 0,
+        ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+          'label' => 'above',
+          'type' => 'string',
+          'weight' => 0,
+        ])
+      ->setDisplayOptions('form', [
+          'type' => 'string_textfield',
+          'weight' => 0,
+        ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
       ->setDescription(t('The user ID of author of the Franchise product entity.'))
@@ -196,7 +217,7 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'author',
-        'weight' => 0,
+        'weight' => 1,
       ])
       ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
@@ -241,7 +262,7 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'commerce_entity_select',
-        'weight' => 0,
+        'weight' => 2,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
@@ -255,7 +276,7 @@ class FranchiseProduct extends RevisionableContentEntityBase implements Franchis
       ->setTranslatable(TRUE)
       ->setDisplayOptions('form', [
         'type' => 'entity_select',
-        'weight' => 4,
+        'weight' => 3,
       ]);
 
     return $fields;
