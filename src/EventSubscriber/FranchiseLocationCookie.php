@@ -42,6 +42,13 @@ class FranchiseLocationCookie implements EventSubscriberInterface {
     }
 
     if (isset($storefront)) {
+
+      $store = $storefront->get('field_store');
+      if (!empty($store)) {
+        user_cookie_save(['storeId' => $store->target_id]);
+        $_COOKIE['Drupal_visitor_storeId'] = $store->target_id;
+      }
+
       // This works for the location indicator.
       user_cookie_save(['storefrontNid' => $storefront->id()]);
       user_cookie_save(['storefrontName' => $storefront->label()]);
