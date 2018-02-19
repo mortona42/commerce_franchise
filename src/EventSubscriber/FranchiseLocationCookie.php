@@ -4,7 +4,6 @@ namespace Drupal\commerce_franchise\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\HttpFoundation\Request;
 use Drupal\node\Entity\Node;
 
 /**
@@ -43,7 +42,6 @@ class FranchiseLocationCookie implements EventSubscriberInterface {
     }
 
     if (isset($storefront)) {
-
       // This works for the location indicator.
       user_cookie_save(['storefrontNid' => $storefront->id()]);
       user_cookie_save(['storefrontName' => $storefront->label()]);
