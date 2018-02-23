@@ -1,1 +1,0 @@
-Commerce Franchise supports stores with a shared set of products.

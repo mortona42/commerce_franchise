@@ -92,10 +92,3 @@ function commerce_franchise_menu_local_tasks_alter(&$data, $route_name) {
 function commerce_franchise_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'commerce_franchise/location_indicator';
 }
-
-/**
- * Implements hook_form_alter().
- */
-function commerce_franchise_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-//  $asdf = \Drupal\Core\Field\FieldDefinitionInterface::getDisplayOptions();
-}
