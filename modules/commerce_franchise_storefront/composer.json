@@ -1,0 +1,11 @@
+{
+    "name": "drupal/commerce_franchise_storefront",
+    "type": "drupal-module",
+    "description": "Storefronts for Commerce Franchise",
+    "homepage": "https://github.com/mortona42/commerce_franchise",
+    "license": "GPL-2.0+",
+    "require": {
+        "drupal/views_extras": "^1.0"
+    },
+    "minimum-stability": "dev"
+}
