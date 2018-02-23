@@ -1,5 +1,3 @@
-Commerce Franchise supports stores with a shared set of products.
-
 Features:
 - Franchise Product entity
 - Location shopping indicator
